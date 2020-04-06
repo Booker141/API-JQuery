@@ -18,16 +18,16 @@ Audience.prototype.connectDb = function (callback) {
 	});
 };
 
-Audience.prototype.add = function (person, callback) {
-	return db.insertOne(person, callback);
+Audience.prototype.getAll = function (callback) {
+	return db.find({}).toArray(callback);
 };
 
 Audience.prototype.get = function (_id, callback) {
 	return db.find({_id: ObjectId(_id)}).toArray(callback);
 };
 
-Audience.prototype.getAll = function (callback) {
-	return db.find({}).toArray(callback);
+Audience.prototype.add = function (person, callback) {
+	return db.insertOne(person, callback);
 };
 
 Audience.prototype.update = function (_id, updatedPerson, callback) {
@@ -35,12 +35,12 @@ Audience.prototype.update = function (_id, updatedPerson, callback) {
 	return db.updateOne({_id: ObjectId(_id)}, {$set: updatedPerson}, callback);
 };
 
-Audience.prototype.remove = function (_id, callback) {
-	return db.deleteOne({_id: ObjectId(_id)}, callback);
-};
-
 Audience.prototype.removeAll = function (callback) {
 	return db.deleteMany({}, callback);
+};
+
+Audience.prototype.remove = function (_id, callback) {
+	return db.deleteOne({_id: ObjectId(_id)}, callback);
 };
 
 module.exports = new Audience();

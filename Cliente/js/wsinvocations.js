@@ -62,7 +62,15 @@ function getAllPersons(){
 		type: "GET",
 		dataType: "json",
 		url: myUrl,
-		success: function(data){ $("#result").html(JSON.stringify(data)); },
+		success: function(data){ 
+			/*$("#result").html(JSON.stringify(data)); */
+			var output = "";
+			for(var i = 0; i<data.length; i++) {
+				output = output + 
+				"<strong>Nombre</strong>: " + data[i]["Nombre"] + "<br>" + "<strong>Apellidos</strong>: " + data[i]["Apellidos"] + "<br>" + "<strong>DNI</strong>: " + data[i]["DNI"] + "<br>" + "<strong>Edad</strong>: " + data[i]["Edad"] + "<br><br>";
+			}
+			$("#result").html(output);
+		},
 		error: function(res){ alert("ERROR: " + res.statusText); }
 	});
 }
