@@ -56,7 +56,7 @@ function postPerson(){
 	});
 }
 
-function getAllPersons(){
+function getAudience(){
 	var myUrl = "http://localhost:8080/audience/";
 	$.ajax({
 		type: "GET",
@@ -66,10 +66,12 @@ function getAllPersons(){
 			/*$("#result").html(JSON.stringify(data)); */
 			var output = "";
 			for(var i = 0; i<data.length; i++) {
-				output = output + 
+				output = output +
+				"<strong>ID</strong>: " + data[i]["_id"] + "<br>" +
 				"<strong>Nombre</strong>: " + data[i]["Nombre"] + "<br>" + "<strong>Apellidos</strong>: " + data[i]["Apellidos"] + "<br>" + "<strong>DNI</strong>: " + data[i]["DNI"] + "<br>" + "<strong>Edad</strong>: " + data[i]["Edad"] + "<br><br>";
 			}
-			$("#result").html(output);
+			$("#result").html("Se han hallado los siguientes asistentes:");
+			$("#data").html(output);
 		},
 		error: function(res){ alert("ERROR: " + res.statusText); }
 	});
