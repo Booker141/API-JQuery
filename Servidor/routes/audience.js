@@ -1,9 +1,10 @@
 'use strict';
 
 const express = require('express');
-const router = express.Router();
+const router = express.Router(); //Permite la ramificacion de los servicios
 const audienceService = require('./audience-service');
 
+//Devolucion de getAll considerando posibles errores y coleccion vacia
 router.get('/', function (req, res) {
 	audienceService.getAll((err, audience) => {
 		if(err){
@@ -16,6 +17,7 @@ router.get('/', function (req, res) {
 	});
 });
 
+//Devolucion de get considerando posibles errores y elemento inexistente
 router.get('/:_id', function (req, res) {
 	let _id = req.params._id;
 	audienceService.get(_id, (err, person) => {
@@ -29,6 +31,7 @@ router.get('/:_id', function (req, res) {
 	});
 });
 
+//Devolucion de add considerando posibles errores y elemento no vacio
 router.post('/', function (req, res) {
 	let person = req.body;
 	audienceService.add(person, (err, person) => {
@@ -40,6 +43,7 @@ router.post('/', function (req, res) {
 	});
 });
 
+//Devolucion de update considerando posibles errores y no actualizacion
 router.put('/:_id', function (req, res) {
 	const _id = req.params._id;
 	const updatedPerson = req.body;
@@ -52,6 +56,7 @@ router.put('/:_id', function (req, res) {
 	});
 });
 
+//Devolucion de removeAll considerando posibles errores
 router.delete('/', function (req, res) {
 	audienceService.removeAll((err) => {
 		if(err){
@@ -62,6 +67,7 @@ router.delete('/', function (req, res) {
 	});
 });
 
+//Devolucion de remove considerando posibles errores
 router.delete('/:_id', function (req, res) {
 	let _id = req.params._id;
 	audienceService.remove(_id, (err) => {

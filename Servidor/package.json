@@ -1,12 +1,12 @@
 {
-  "name": "practicandorest",
+  "name": "MILF_API",
   "version": "1.0.0",
-  "description": "primera prueba rest",
+  "description": "API desarrollada para satisfacer el requisito de gestión de asistentes del festival MILF",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "CarpioKey",
+  "author": "Luis Miguel Carpio Gavira, Sergio García Navarro",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
