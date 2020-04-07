@@ -1,37 +1,81 @@
 <html lang="es">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="author" content="Luis Miguel Carpio Gavira, Sergio García Navarro">
+    <meta name="designer" content="Luis Miguel Carpio Gavira, Sergio García Navarro">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>MILF: Music & Instruments Lovers Festival / Panel de gestión</title>
 	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Viga&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="../../Proyecto-PNET/css/estilo.css" rel="stylesheet" type="text/css">
+	<link href="../../Proyecto-PNET/css/inscripcion.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"> </script>
 	<script type="text/javascript" src="js/wsinvocations.js"></script>
 </head>
 <body>
-	<h1 style="font-family: 'Viga'">Menú primitivo de gestión de asistentes del MILF</h1>
-	<br>
-	<label style="font-family: 'Raleway'">ID: </label>
-	<input type="text" id="ID" name="ID"><br>
-	<label style="font-family: 'Raleway'">Nombre: </label>
-	<input type="text" id="Nombre" name="Nombre"><br>
-	<label style="font-family: 'Raleway'">Apellidos: </label>
-	<input type="text" id="Apellidos" name="Apellidos"><br>
-	<label style="font-family: 'Raleway'">DNI: </label>
-	<input type="text" id="DNI" name="DNI"><br>
-	<label style="font-family: 'Raleway'">Edad: </label>
-	<input type="number" id="Edad" name="Edad"><br>
-	<br>
-	<input type="button" value="Añadir asistente" onclick="addPerson()">
-	<input type="button" value="Modificar asistente" onclick="updatePerson()">
-	<input type="button" value="Eliminar asistente" onclick="deletePerson()">
-	<input type="button" value="Consultar asistente" onclick="getPerson()">
-	<br><br>
-	<input type="button" value="Lista de asistentes" onclick="getAudience()">
-	<input type="button" value="Eliminar todos los asistentes" onclick="deleteAudience()">
-	<br><br>
-	<h3 id="result" style="font-family: 'Viga'"></h3>
-	<br>
-	<p id="data" style="font-family: 'Raleway'"></p>
-	<!--<input type="button" value="GET MOVIE 'The Lion King'" onclick="getMovie('5e862d9449b5fc0c440a6fa8')">
-	<input type="button" value="POST MOVIE 'Dundirk'" onclick="postMovie()">-->
+	<header>
+		<a href="../../Proyecto-PNET/html/index.html"><img id="logo" src="../../Proyecto-PNET/media/images/Logo.png" alt="Logo de la página web" title="Logo de MILF"></a>
+		<ul id="menuppal">
+			<li><a href="../../Proyecto-PNET/html/index.html" title="A la página principal">Inicio</a></li>
+			<li><div class="dropdown"> <!-- Localización -->
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true" role="button" id="dropdownMenuLink" title="Localización del evento">Localización</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/localizacion.html#Alojamiento">Alojamiento</a>
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/localizacion.html#Transporte">Transportes</a>
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/localizacion.html#Lugar">Lugar</a>
+				</div>
+			</div></li>
+			<li><div class="dropdown"> <!-- Programa -->
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true" role="button" id="dropdownMenuLink2" title="Descripción del evento">Programa</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/programa.html#Itinerario">Itinerario</a>
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/programa.html#Conciertos">Conciertos</a>
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/programa.html#Conferencias">Conferencias</a>
+				</div>
+			</div></li>
+			<li><a href="../../Proyecto-PNET/html/inscripcion.html" title="Apuntarse al evento">Inscripción</a></li>
+			<li><div class="dropdown"> <!-- Quiénes somos -->
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" aria-haspopup="true" role="button" id="dropdownMenuLink3" title="Contacto">Quiénes somos</a>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink3">
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/contacto.html#Introduccion">Introducción</a>
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/contacto.html#Contexto">Contexto del evento</a>
+					<a class="dropdown-item" href="../../Proyecto-PNET/html/contacto.html#Formas">Formas de contacto</a>
+				</div>
+			</div></li>
+		</ul>
+	</header>
+	<div style="margin-left: 2%;">
+		<h1 style="font-family: 'Viga'; margin-top: 5%; font-size: 2.25vw;">Menú primitivo de gestión de asistentes del MILF</h1>
+		<br>
+		<label style="font-family: 'Raleway'">ID: </label>
+		<input type="text" id="ID" name="ID"><br>
+		<label style="font-family: 'Raleway'">Nombre: </label>
+		<input type="text" id="Nombre" name="Nombre"><br>
+		<label style="font-family: 'Raleway'">Apellidos: </label>
+		<input type="text" id="Apellidos" name="Apellidos"><br>
+		<label style="font-family: 'Raleway'">DNI: </label>
+		<input type="text" id="DNI" name="DNI"><br>
+		<label style="font-family: 'Raleway'">Edad: </label>
+		<input type="number" id="Edad" name="Edad"><br>
+		<br>
+		<input type="button" value="Añadir asistente" onclick="if(validaPOST(Nombre, Apellidos,)) addPerson(Nombre, Apellidos, DNI, Edad)">
+		<input type="button" value="Modificar asistente" onclick="updatePerson()">
+		<input type="button" value="Eliminar asistente" onclick="deletePerson()">
+		<input type="button" value="Consultar asistente" onclick="getPerson()">
+		<br><br>
+		<input type="button" value="Lista de asistentes" onclick="getAudience()">
+		<input type="button" value="Eliminar todos los asistentes" onclick="deleteAudience()">
+		<br><br>
+		<h3 id="result" style="font-family: 'Viga'; font-size: 1.75vw; margin-top: 2%;"></h3>
+		<br>
+		<p id="data" style="font-family: 'Raleway'; font-size: 1.5vw;"></p>
+		<!--<input type="button" value="GET MOVIE 'The Lion King'" onclick="getMovie('5e862d9449b5fc0c440a6fa8')">
+		<input type="button" value="POST MOVIE 'Dundirk'" onclick="postMovie()">-->
+	</div>
+	<script src="js/validator.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+//Boton de prueba
 function getHello(){
 	$.ajax({
 		type: "GET",
@@ -11,16 +12,7 @@ function getHello(){
 	});
 }
 
-/*function getHello2(){
-	var req = $.ajax({
-		type: "GET",
-		url: "http://localhost:8080/"
-	});
-	
-	req.done(function(data){ $("#result").html(data); });
-	req.fail(function(res){ alert("ERROR: " + res.statusText); });
-}*/
-
+//Boton "Consultar asistente"
 function getPerson(personId){
 	var myUrl = "http://localhost:8080/audience/" + personId;
 	$.ajax({
@@ -36,19 +28,22 @@ function getPerson(personId){
 	});
 }
 
-function postPerson(){
+//Boton "Añadir asistente"
+function addPerson(nombre, apellidos, dni, edad){
 	$.ajax({
 		type: "POST",
 		url: "http://localhost:8080/audience/",
 		contentType: "application/json",
 		dataType: "text",
 		data: JSON.stringify({
-			"title": "Dunkirk",
-			"director": "Christopher Nolan",
-			"year": 2017
+			"Nombre": nombre.value,
+			"Apellidos": apellidos.value,
+			"DNI": dni.value,
+			"Edad": edad.value
 		}),
 		success: function(data){
-			$("#result").html(data);
+			$("#result").html("Se ha añadido con éxito el siguiente asistente:");
+			$("#data").html("<strong>Nombre</strong>: " + nombre.value + "<br>" + "<strong>Apellidos</strong>: " + apellidos.value + "<br>" + "<strong>DNI</strong>: " + dni.value + "<br>" + "<strong>Edad</strong>: " + edad.value + "<br><br>");
 		},
 		error: function(res){
 			alert("ERROR: " + res.statusText);
@@ -56,6 +51,7 @@ function postPerson(){
 	});
 }
 
+//Boton "Lista de asistentes"
 function getAudience(){
 	var myUrl = "http://localhost:8080/audience/";
 	$.ajax({
@@ -74,5 +70,21 @@ function getAudience(){
 			$("#data").html(output);
 		},
 		error: function(res){ alert("ERROR: " + res.statusText); }
+	});
+}
+
+//Boton "Modificar asistente"
+function updatePerson(){
+	var myUrl = "http://localhost:8080/audience/";
+	$.ajax({
+		type: "POST",
+		dataType: "json",
+		url: myUrl,
+		success: function(data){
+			
+		},
+		error: function(res){
+			alert("ERROR: " + res.statusText);
+		}
 	});
 }
