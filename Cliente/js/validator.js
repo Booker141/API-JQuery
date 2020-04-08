@@ -1,18 +1,12 @@
-function validaGET(){
-	ID = document.getElementById("ID").value;
-	
-	if(ID == null || ID == ""){
+function validaGET(id){
+	if(id == null || id == ""){
 		alert('Se debe completar el campo ID.');
 		return false;
 	}
 	return true;
 }
 
-function validaPOST(){
-	nombre = document.getElementById("Nombre").value;
-	apellidos = document.getElementById("Apellidos").value;
-	dni = document.getElementById("DNI").value;
-	edad = document.getElementById("Edad").value;
+function validaPOST(nombre, apellidos, dni, edad){
 	validado = true;
 	
 	if(nombre == null || nombre == ""){
@@ -35,15 +29,10 @@ function validaPOST(){
 	return validado;
 }
 
-function validaPUT(){
-	ID = document.getElementById("ID").value;
-	nombre = document.getElementById("Nombre").value;
-	apellidos = document.getElementById("Apellidos").value;
-	dni = document.getElementById("DNI").value;
-	edad = document.getElementById("Edad").value;
+function validaPUT(id, nombre, apellidos, dni, edad){
 	validado = true;
 	
-	if(ID == null || ID == ""){
+	if(id == null || id == ""){
 		alert('Se debe completar el campo ID.');
 		validado = false;
 	}
@@ -67,10 +56,8 @@ function validaPUT(){
 	return validado;
 }
 
-function validaDELETE(){
-	ID = document.getElementById("ID").value;
-	
-	if(ID == null || ID == ""){
+function validaDELETE(id){
+	if(id == null || id == ""){
 		alert('Se debe completar el campo ID.');
 		return false;
 	}
