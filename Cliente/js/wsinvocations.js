@@ -2,7 +2,7 @@
 function getHello(){
 	$.ajax({
 		type: "GET",
-		url: "http://localhost:8080/",
+		url: "http://localhost:3000/",
 		success: function(data){
 			$("#result").html(data);
 		},
@@ -19,7 +19,7 @@ function getPerson(){
 		$.ajax({
 			type: "GET",
 			dataType: "json",
-			url: "http://localhost:8080/audience/"+id,
+			url: "http://localhost:3000/audience/"+id,
 			success: function(data){
 				if(data.length == 0){
 					$("#result").html("No existen asistentes con el ID indicado");
@@ -45,7 +45,7 @@ function addPerson(){
 	if(validaPOST(nombre, apellidos, dni, edad)){
 		$.ajax({
 			type: "POST",
-			url: "http://localhost:8080/audience/",
+			url: "http://localhost:3000/audience/",
 			contentType: "application/json",
 			dataType: "text",
 			data: JSON.stringify({
@@ -70,7 +70,7 @@ function getAudience(){
 	$.ajax({
 		type: "GET",
 		dataType: "json",
-		url: "http://localhost:8080/audience/",
+		url: "http://localhost:3000/audience/",
 		success: function(data){ 
 			var output = "";
 			for(var i = 0; i<data.length; i++) {
@@ -96,7 +96,7 @@ function updatePerson(){
 		$.ajax({
 			type: "GET",
 			dataType: "json",
-			url: "http://localhost:8080/audience/"+id,
+			url: "http://localhost:3000/audience/"+id,
 			success: function(data){
 				if(data.length == 0){
 					$("#result").html("No existen asistentes con el ID indicado");
@@ -105,7 +105,7 @@ function updatePerson(){
 					$.ajax({
 						type: "PUT",
 						dataType: "json",
-						url: "http://localhost:8080/audience/"+id,
+						url: "http://localhost:3000/audience/"+id,
 						contentType: "application/json",
 						dataType: "text",
 						data: JSON.stringify({
@@ -138,7 +138,7 @@ function deletePerson(){
 		$.ajax({
 			type: "GET",
 			dataType: "json",
-			url: "http://localhost:8080/audience/"+id,
+			url: "http://localhost:3000/audience/"+id,
 			success: function(data){
 				if(data.length == 0){
 					$("#result").html("No existen asistentes con el ID indicado");
@@ -147,7 +147,7 @@ function deletePerson(){
 					$.ajax({
 						type: "DELETE",
 						dataType: "json",
-						url: "http://localhost:8080/audience/"+id,
+						url: "http://localhost:3000/audience/"+id,
 						success: function(){
 							$("#result").html("Se ha eliminado al asistente con ID: "+id);
 							$("#data").html("");
@@ -170,7 +170,7 @@ function deleteAudience(){
 	$.ajax({
 		type: "DELETE",
 		dataType: "json",
-		url: "http://localhost:8080/audience/",
+		url: "http://localhost:3000/audience/",
 		success: function(){
 			$("#result").html("Se han eliminado todos los asistentes");
 			$("#data").html("");
